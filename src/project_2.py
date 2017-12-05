@@ -31,22 +31,21 @@ def plot_line(m, b):
     mat_plt.plot(x, ((m * x) + b), 'black')
     return
 
+def plot_scatter(x, y, color):
+    mat_plt.scatter(x, y, color = color)
 
-def plot_for_part_one():
-    mat_plt.title("petal length v width for versicolor and virginica")
+def pass_data_to_plotter():
     data_versicolor, data_virginica = get_data('..\data\irisdata.csv')
     x1, y1 = split_data(data_versicolor)
     x2, y2 = split_data(data_virginica)
-    #plot_line(1, 2)
-    mat_plt.scatter(x2, y2)
-    mat_plt.scatter(x1, y1)
-    mat_plt.show()
+    plot_for_part_one(x1, y1, x2, y2)
 
-mat_plt.title("petal length v width for versicolor and virginica")
-data_versicolor, data_virginica = get_data('..\data\irisdata.csv')
-x1, y1 = split_data(data_versicolor)
-x2, y2 = split_data(data_virginica)
-#plot_line(1, 2)
-mat_plt.scatter(x2, y2)
-mat_plt.scatter(x1, y1)
+def plot_for_part_one(x1, y1, x2, y2):
+    mat_plt.title("petal length v width for versicolor and virginica")
+    #plot_line(1, 2)
+    plot_scatter(x1, y1, "green")
+    plot_scatter(x2, y2, "orange")
+
+
+pass_data_to_plotter()
 mat_plt.show()
