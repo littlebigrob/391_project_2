@@ -41,12 +41,11 @@ def plot_points_and_decision_boundary(x1, y1, x2, y2, boundary, figure_number):
     plot_line(boundary[0], boundary[1])
     mat_plt.xlabel("Petal Length")
     mat_plt.ylabel("Petal Width")
-    mat_plt.scatter(x1 + x2, y1 + y2, "white")
-    mat_plt.scatter(x1, y1, "green")
-    mat_plt.scatter(x2, y2, "orange")
+    mat_plt.scatter(x1, y1, color="green")
+    mat_plt.scatter(x2, y2, color="orange")
 
 
-# this classifies wether or not a flower is above or below the line
+# this classifies whether or not a flower is above or below the line
 def classifier(x, y, boundary_x, boundary_y):
     over = True
     line_y = float(x) * boundary_x + boundary_y
