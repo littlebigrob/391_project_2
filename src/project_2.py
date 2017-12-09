@@ -71,7 +71,7 @@ def mean_square_error(data_1, data_2, boundary):
     total_error = sum_error / number_of_points
     return total_error
 
-
+# this takes the data and the boundary line and finds the new gradient for it
 def gradient(data_1, data_2, boundary):
     points = 0
     gradient_m = 0
@@ -91,7 +91,7 @@ def gradient(data_1, data_2, boundary):
     return m, b
 
 
-# the gradient descent function
+# starts at a decision boundary line and keeps on moving until minimal change in the gradient
 def descent(data_1, data_2, boundary):
     previous_error = np.math.inf
     calculated_error = mean_square_error(data_1, data_2, boundary)
@@ -100,7 +100,7 @@ def descent(data_1, data_2, boundary):
     iteration = 1
     line_m = [m]
     line_b = [b]
-    while previous_error - calculated_error > 0.0001:
+    while previous_error - calculated_error > 0.00001:
         m, b = gradient(data_1, data_2, (m, b))
         iteration = iteration + 1
         previous_error = calculated_error
